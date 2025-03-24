@@ -1,3 +1,23 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.18.0"
+    }
+  
+  }
+}
+
+provider "azurerm" {
+  # Configuration options
+ 
+  subscription_id = var.subscription_id
+  tenant_id       = var.tenant_id
+  client_id       = var.client_id
+  client_secret   = var.client_secret
+  features {}
+}
+
 resource "azurerm_resource_group" "rg" {
   name     = "jenkins-terraform-rg"
   location = "East US"
